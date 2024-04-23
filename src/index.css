@@ -1,0 +1,20 @@
+
+body {
+  margin: 0;
+  background-color: #1e152e !important; 
+  /* background: linear-gradient(#1e152e, #161616); */
+  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji !important;
+  height: 100%;
+  /* @media (min-width: 1200px) {
+    zoom: 0.85;
+  } */
+}
+
+html {
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
