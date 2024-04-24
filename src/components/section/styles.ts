@@ -149,18 +149,6 @@ export const SiteHero = styled.section`
       color: #0389ff;
     }
 
-    .row.grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-gap: 15px;
-    }
-
-    @media only screen and (max-width: 768px) {
-      .row.grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .card {
       box-shadow: 0 10px 30px 10px rgba(255, 255, 255, 0.16);
       border: 0;
@@ -194,6 +182,7 @@ export const SiteHero = styled.section`
     transition: .3s ease-in-out;
     border: 4px solid transparent;
     transition: .5s;
+    overflow: visible !important;
 
     img {
       width: 100px;
@@ -201,9 +190,6 @@ export const SiteHero = styled.section`
       float: right;
     }
 
-    .facens {
-      width: 160px !important;
-    }
   
     h3 {
       color: #2c3e50;
@@ -230,9 +216,13 @@ export const SiteHero = styled.section`
     transform: translateY(-10px);
   }
 
-  .skill h3 {
-    font-size: 18px;
-    font-weight: 200;
+  .skill {
+    overflow: visible;
+    h3 {
+      font-size: 18px;
+      font-weight: 200;
+    }
+
   }
 
   .progress {
@@ -242,11 +232,9 @@ export const SiteHero = styled.section`
     .progress-bar {
       background-color: #0389ff;
       position: relative;
-  
+
       span {
         position: absolute;
-        right: -13px;
-        bottom: -20px;
         background-color: #0389ff;
         font-size: 10px;
         line-height: 10px;
@@ -266,12 +254,23 @@ export const SiteHero = styled.section`
     }
   }
 
-
   @media (min-width: 768px) {
     margin-top: 0;
 
     h1 {
         font-size: 70px
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-section {
+      padding: 30px 0;
+    }
+    .icon_container {
+      gap: 45px;
+    }
+    .icon_footer {
+      width: 70px !important;
     }
   }
 `;

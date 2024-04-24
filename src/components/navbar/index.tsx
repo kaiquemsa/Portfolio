@@ -30,7 +30,7 @@ const StyledBox = styled(Box)<{ action: boolean }>`
 `;
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Skills', 'My-Services', 'Portfolio', 'Experience', 'Courses', 'Strength', 'Other', 'Interest', 'Languages', 'Contact'];
+const navItems = ['Home', 'About', 'Skills', 'My-Services', 'Portfolio', 'Experience', 'Courses', 'Languages', 'Contact'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -50,7 +50,9 @@ export default function DrawerAppBar(props: Props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <a href={`#${item}`}>
+                <ListItemText primary={item} />
+              </a>
             </ListItemButton>
           </ListItem>
         ))}
@@ -61,7 +63,7 @@ export default function DrawerAppBar(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <StyledBox action={props.action} sx={{ display: 'flex', marginRight: '15px' }}>
+    <StyledBox action={props.action} sx={{ display: 'flex', marginRight: '15px', position: 'relative', zIndex: '20' }}>
       <CssBaseline />
       <AppBar component="nav" style={{ backgroundColor: "rgba(105, 27, 252, 0.6)", borderRadius: "0 0 16px 16px" }}>
         <Toolbar sx={{ justifyContent: { md: 'center' } }}>
@@ -76,9 +78,22 @@ export default function DrawerAppBar(props: Props) {
           </IconButton>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff', textTransform: 'none', fontSize: '1rem' }}>
-                {item}
-              </Button>
+              <a href={`#${item}`}>
+                <Button key={item} 
+                sx={{ 
+                    color: '#d6dfed', 
+                    textTransform: 'none', 
+                    fontSize: '1rem', 
+                    transition: 'color 0.5s ease-in-out, fontWeight 0.5s ease-in-out, backgroundColor 0.5s ease-in-out', 
+                    '&:hover': {
+                      color: '#ffffff',
+                      fontWeight: 'bold',
+                      backgroundColor: 'rgba(110, 2, 250, 0.1)'
+                    },
+                  }}>
+                  {item}
+                </Button>
+              </a>
             ))}
           </Box>
         </Toolbar>
